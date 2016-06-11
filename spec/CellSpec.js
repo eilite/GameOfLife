@@ -42,4 +42,6 @@ describe("Cell calculate next state", function() {
     cell = new Cell(false,[new Cell(true)])
     expect(cell.nextState()).toEqual(false);
   });
+
+
 });

@@ -1,10 +1,19 @@
+var Cell = require("./Cell")
 
-function Board(cells){
-  this.cells = cells;
+function Board(width, height){
+  this.cells = [];
+  for (var i = 0; i < width*height; i++) {
+    this.cells[i] = new Cell(Math.random() < 0.5 ? true : false)
+  }
 }
 
-Board.prototype.setNeighbours(cell){
+Board.prototype.getSize = function(){
+  return this.cells.length;
+}
+Board.prototype.setNeighbours = function(cell){
   return cell;
 }
 
-module.export = Board;
+
+
+module.exports = Board;
