@@ -5,7 +5,7 @@ function Board(width, height){
   this.height = height;
   this.cells = [];
   for (var i = 0; i < width*height; i++) {
-    this.cells[i] = new Cell(Math.random() < 0.5 ? true : false)
+    this.cells.push(new Cell(Math.random() < 0.5 ? true : false));
   }
 }
 
@@ -13,7 +13,7 @@ Board.prototype.getSize = function(){
   return this.cells.length;
 }
 
-Board.prototype.setNeighbours = function(cell, index){
+Board.prototype.setCellNeighbours = function(cell, index){
   var column = index % this.width
   var row = Math.trunc(index / this.width)
   var neighbours = [];
@@ -55,6 +55,9 @@ Board.prototype.setNeighbours = function(cell, index){
   return resCell;
 }
 
+Board.prototype.setCells = function(cells){
+  this.cells = cells;
+}
 
 
 module.exports = Board;
